@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from curses.ascii import isalnum
-
 
 def get_num_letters(text):
     num = 0
     for i in text:
-        if isalnum(i):
+        if i.isalnum():
             num += 1
 
     return num
@@ -24,8 +22,7 @@ def get_word_length_histogram(text: str):
     histogramme += [0] * max_num_letters
 
     for word in words:
-        histogramme[get_num_letters(
-            word)] = histogramme[get_num_letters(word)] + 1
+        histogramme[get_num_letters(word)] += 1
 
     return histogramme
 
